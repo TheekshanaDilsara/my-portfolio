@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import { useState } from 'react';
 
@@ -61,7 +61,7 @@ export default function Home() {
               <div className="absolute inset-12 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full flex items-center justify-center overflow-hidden">
                 {!imageError ? (
                   <img 
-                    src="/profile.jpg" 
+                    src="/profile.JPG" 
                     alt="Theekshana Dilsara" 
                     className="w-full h-full object-cover"
                     onError={() => setImageError(true)}
