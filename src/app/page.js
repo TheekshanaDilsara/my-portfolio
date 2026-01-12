@@ -1,5 +1,10 @@
 "use client";
+
+import { useState } from 'react';
+
 export default function Home() {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       {/* Hero Section */}
@@ -21,7 +26,7 @@ export default function Home() {
                 I'm <span className="text-orange-500">Theekshana Dilsara</span>
               </h1>
               <h3 className="text-2xl md:text-3xl text-gray-300 font-light">
-                _Data Science Undergraduate_
+                Data Science Undergraduate
               </h3>
             </div>
 
@@ -29,16 +34,16 @@ export default function Home() {
               A Data Science undergraduate at SLIIT, I am passionate about analytics, machine learning, and data-driven decision-making. My experience includes developing websites, mobile applications, dashboards, and various academic projects—each contributing to my ability to extract insights and solve real-world challenges through data. With a clear focus on advancing my career in data science, I am committed to deepening my expertise in machine learning, analytics, and data-driven solution development to create meaningful and measurable impact.
             </p>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex gap-4 pt-4 flex-wrap">
               <a 
                 href="/contact" 
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-colors duration-300"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 text-center min-w-[140px]"
               >
                 Hire Me
               </a>
               <a 
                 href="/projects" 
-                className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3 rounded-md font-medium transition-colors duration-300"
+                className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 text-center min-w-[140px]"
               >
                 My Works
               </a>
@@ -54,17 +59,16 @@ export default function Home() {
               
               {/* Profile Image */}
               <div className="absolute inset-12 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full flex items-center justify-center overflow-hidden">
-                {/* Replace '/profile.jpg' with your actual image path */}
-                <img 
-                  src="/profile.jpg" 
-                  alt="Theekshana Dilsara" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to initials if image doesn't load
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<div class="text-8xl text-orange-500 font-bold">TD</div>';
-                  }}
-                />
+                {!imageError ? (
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Theekshana Dilsara" 
+                    className="w-full h-full object-cover"
+                    onError={() => setImageError(true)}
+                  />
+                ) : (
+                  <div className="text-7xl md:text-8xl text-orange-500 font-bold">TD</div>
+                )}
               </div>
             </div>
 
