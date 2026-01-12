@@ -8,7 +8,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-20 overflow-hidden">
+      <section className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center px-6 md:px-20 overflow-hidden">
+  
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-20 w-64 h-64 border border-orange-500/30 rounded-full"></div>
@@ -73,18 +74,24 @@ export default function Home() {
             </div>
 
             {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-orange-500/20 rounded-lg backdrop-blur-sm border border-orange-500/30"></div>
-            <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-orange-500/20 rounded-full backdrop-blur-sm border border-orange-500/30"></div>
-          </div>
+             <div className="absolute -top-4 -left-2 w-12 h-12 bg-orange-500/8 rounded-full backdrop-blur-sm border border-orange-500/5 animate-pulse "></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-orange-500/10 rounded-lg backdrop-blur-sm border border-orange-500/10 animate-pulse"></div>
+            <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-orange-500/5 rounded-full backdrop-blur-sm border border-orange-500/8 animate-pulse"></div>
+            {/* <div className="absolute -top-5 -left-25 w-8 h-8 bg-orange-500/20 rounded-full backdrop-blur-sm border border-orange-500/30 animate-pulse "></div> */}
+            {/* <div className="absolute -top-17 -right-19 w-10 h-10 bg-orange-500/10 rounded-lg backdrop-blur-sm border border-orange-500/30 animate-pulse"></div> */}
+            {/* <div className="absolute -bottom-1 -right-8 w-14 h-14 bg-orange-500/10 rounded-full backdrop-blur-sm border border-orange-500/30 animate-pulse"></div> */}
+            {/* <div className="absolute -top-15 -left-2 w-12 h-12 bg-orange-500/20 rounded-full backdrop-blur-sm border border-orange-500/30 animate-pulse "></div> */}
+        </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-10 right-2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-orange-500 rounded-full mt-2"></div>
           </div>
         </div>
       </section>
+      
 
       {/* Quick Stats Section */}
       <section className="py-20 px-6 md:px-20 bg-gray-900/50">
