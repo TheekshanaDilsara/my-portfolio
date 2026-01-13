@@ -113,7 +113,7 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Stat 1 */}
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-orange-500 transition-colors duration-300">
+            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-orange-500 transition-colors duration-300 ">
               <div className="flex items-start gap-4">
                 <div className="text-4xl">📊</div>
                 <div>
@@ -128,11 +128,13 @@ export default function Home() {
             {/* Stat 2 */}
             <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-orange-500 transition-colors duration-300">
               <div className="flex items-start gap-4">
-                <div className="text-4xl">🤖</div>
+                <div className="text-4xl">⌨️</div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Machine Learning</h3>
+                  <h3 className="text-xl font-bold mb-2">
+                    Foundational Data & Programming
+                  </h3>
                   <p className="text-gray-400">
-                    Building predictive models with Scikit-learn
+                    Python, R, SQL for coding and data management
                   </p>
                 </div>
               </div>
