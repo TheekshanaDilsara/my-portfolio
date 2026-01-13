@@ -72,6 +72,10 @@ export default function Contact() {
     return (
         <div className="min-h-screen bg-gray-950 text-white py-20 px-6 md:px-20">
             <div className="container mx-auto max-w-7xl">
+                <div className="absolute -top-10-left-2 w-12 h-12 bg-orange-500/8 rounded-full backdrop-blur-sm border border-orange-500/5 animate-pulse "></div>
+                <div className="absolute -bottom-1 -right-2 w-20 h-20 bg-orange-500/10 rounded-lg backdrop-blur-sm border border-orange-500/10 animate-pulse"></div>
+                <div className="absolute -bottom-18 -left-1 w-16 h-16 bg-orange-500/5 rounded-full backdrop-blur-sm border border-orange-500/8 animate-pulse"></div>
+
                 {/* Page Header */}
                 <div className="mb-16 text-center">
                     <h1 className="text-5xl md:text-6xl font-bold mb-4">

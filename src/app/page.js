@@ -1,6 +1,6 @@
- "use client";
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Home() {
   const [imageError, setImageError] = useState(false);
@@ -9,7 +9,6 @@ export default function Home() {
     <div className="min-h-screen bg-gray-950 text-white">
       {/* Hero Section */}
       <section className="relative min-h-[100vh] md:min-h-screen flex items-center justify-center px-6 md:px-20 overflow-hidden">
-  
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-20 w-64 h-64 border border-orange-500/30 rounded-full"></div>
@@ -32,21 +31,36 @@ export default function Home() {
             </div>
 
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-              A Data Science undergraduate at SLIIT, I am passionate about analytics, machine learning, and data-driven decision-making. My experience includes developing websites, mobile applications, dashboards, and various academic projects—each contributing to my ability to extract insights and solve real-world challenges through data. With a clear focus on advancing my career in data science, I am committed to deepening my expertise in machine learning, analytics, and data-driven solution development to create meaningful and measurable impact.
+              A Data Science undergraduate at SLIIT, I am passionate about
+              analytics, machine learning, and data-driven decision-making. My
+              experience includes developing websites, mobile applications,
+              dashboards, and various academic projects—each contributing to my
+              ability to extract insights and solve real-world challenges
+              through data. With a clear focus on advancing my career in data
+              science, I am committed to deepening my expertise in machine
+              learning, analytics, and data-driven solution development to
+              create meaningful and measurable impact.
             </p>
 
             <div className="flex gap-4 pt-4 flex-wrap">
-              <a 
-                href="/contact" 
+              <a
+                href="/contact"
                 className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 text-center min-w-[140px]"
               >
                 Hire Me
               </a>
-              <a 
-                href="/projects" 
+              <a
+                href="/projects"
                 className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 text-center min-w-[140px]"
               >
                 My Works
+              </a>
+              <a
+                href="/Theekshana_Dilsara_CV.pdf"
+                download="Theekshana_Dilsara_CV.pdf"
+                className="bg-orange-900 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 text-center min-w-[140px]"
+              >
+                My Resume
               </a>
             </div>
           </div>
@@ -57,31 +71,33 @@ export default function Home() {
               {/* Orange Circle Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full opacity-20 blur-2xl"></div>
               <div className="absolute inset-8 border-4 border-orange-500 rounded-full"></div>
-              
+
               {/* Profile Image */}
               <div className="absolute inset-12 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full flex items-center justify-center overflow-hidden">
                 {!imageError ? (
-                  <img 
-                    src="/profile.JPG" 
-                    alt="Theekshana Dilsara" 
+                  <img
+                    src="/profile.JPG"
+                    alt="Theekshana Dilsara"
                     className="w-full h-full object-cover"
                     onError={() => setImageError(true)}
                   />
                 ) : (
-                  <div className="text-7xl md:text-8xl text-orange-500 font-bold">TD</div>
+                  <div className="text-7xl md:text-8xl text-orange-500 font-bold">
+                    TD
+                  </div>
                 )}
               </div>
             </div>
 
             {/* Floating Elements */}
-             <div className="absolute -top-4 -left-2 w-12 h-12 bg-orange-500/8 rounded-full backdrop-blur-sm border border-orange-500/5 animate-pulse "></div>
+            <div className="absolute -top-4 -left-2 w-12 h-12 bg-orange-500/8 rounded-full backdrop-blur-sm border border-orange-500/5 animate-pulse "></div>
             <div className="absolute -top-4 -right-4 w-20 h-20 bg-orange-500/10 rounded-lg backdrop-blur-sm border border-orange-500/10 animate-pulse"></div>
             <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-orange-500/5 rounded-full backdrop-blur-sm border border-orange-500/8 animate-pulse"></div>
             {/* <div className="absolute -top-5 -left-25 w-8 h-8 bg-orange-500/20 rounded-full backdrop-blur-sm border border-orange-500/30 animate-pulse "></div> */}
             {/* <div className="absolute -top-17 -right-19 w-10 h-10 bg-orange-500/10 rounded-lg backdrop-blur-sm border border-orange-500/30 animate-pulse"></div> */}
             {/* <div className="absolute -bottom-1 -right-8 w-14 h-14 bg-orange-500/10 rounded-full backdrop-blur-sm border border-orange-500/30 animate-pulse"></div> */}
             {/* <div className="absolute -top-15 -left-2 w-12 h-12 bg-orange-500/20 rounded-full backdrop-blur-sm border border-orange-500/30 animate-pulse "></div> */}
-        </div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
@@ -91,7 +107,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
 
       {/* Quick Stats Section */}
       <section className="py-20 px-6 md:px-20 bg-gray-900/50">

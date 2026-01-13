@@ -4,8 +4,11 @@ export default function About() {
         <div className="min-h-screen bg-gray-950 text-white py-20 px-6 md:px-20">
             <div className="container mx-auto max-w-7xl">
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
-
                 </div>
+                <div className="absolute -top-10-left-2 w-12 h-12 bg-orange-500/8 rounded-full backdrop-blur-sm border border-orange-500/5 animate-pulse "></div>
+                <div className="absolute -bottom-1 -right-2 w-20 h-20 bg-orange-500/10 rounded-lg backdrop-blur-sm border border-orange-500/10 animate-pulse"></div>
+                <div className="absolute -bottom-18 -left-1 w-16 h-16 bg-orange-500/5 rounded-full backdrop-blur-sm border border-orange-500/8 animate-pulse"></div>
+
                 {/* Page Header */}
                 <div className="mb-16 text-center">
                     <h1 className="text-5xl md:text-6xl font-bold mb-4">
@@ -16,6 +19,7 @@ export default function About() {
 
                 {/* Bio Section */}
                 <section className="mb-20">
+
                     <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 md:p-12">
                         <h2 className="text-3xl font-bold mb-6 text-orange-500">Who I Am</h2>
                         <p className="text-gray-300 text-lg leading-relaxed mb-4">
@@ -112,6 +116,44 @@ export default function About() {
                                     <p className="text-gray-300 leading-relaxed">
                                         Completed foundational education with strong academic performance across
                                         all subjects.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Education Item 3 */}
+                        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-orange-500 transition-colors duration-300">
+                            <div className="flex items-start gap-6">
+                                <div className="flex-shrink-0 w-16 h-16 bg-orange-500/20 rounded-lg flex items-center justify-center border border-orange-500">
+                                    <span className="text-2xl">🛞</span>
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-2xl font-bold mb-2">Automotive Electronics & Diagnostics</h3>
+                                    <p className="text-orange-500 font-medium mb-3">
+                                        OBD Academy
+                                    </p>
+                                    <p className="text-gray-400 mb-2">Completed</p>
+                                    <p className="text-gray-300 leading-relaxed">
+                                        Certificate of Service Training in Auto Electrical & Programming (OBD)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Education Item 3 */}
+                        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-orange-500 transition-colors duration-300">
+                            <div className="flex items-start gap-6">
+                                <div className="flex-shrink-0 w-16 h-16 bg-orange-500/20 rounded-lg flex items-center justify-center border border-orange-500">
+                                    <span className="text-2xl">📏</span>
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-2xl font-bold mb-2">AutoDesk AutoCAD Certificate Course</h3>
+                                    <p className="text-orange-500 font-medium mb-3">
+                                        3D ART Institute
+                                    </p>
+                                    <p className="text-gray-400 mb-2">Completed</p>
+                                    <p className="text-gray-300 leading-relaxed">
+                                        Completed a certified training program in AutoCAD, developing practical skills in 2D drafting, 3D modeling, and technical design. Earned an official certificate demonstrating competency in computer-aided design tools and techniques.
                                     </p>
                                 </div>
                             </div>
@@ -218,6 +260,27 @@ export default function About() {
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <span className="text-orange-500">▸</span> NoSQL (MongoDB)
+                                </li>
+                            </ul>
+                        </div>
+                        {/* AutoMobile */}
+                        <div className="bg-gray-900 border border-gray-800 rounded-lg p-8">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center border border-orange-500">
+                                    <span className="text-xl">🚙</span>
+                                </div>
+                                <h3 className="text-2xl font-bold">Automotive Electronics & Diagnostics</h3>
+                            </div>
+                            <ul className="space-y-3 text-gray-300">
+
+                                <li className="flex items-center gap-2">
+                                    <span className="text-orange-500">▸</span> EEPROM Reading/Writing
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <span className="text-orange-500">▸</span> ECU Reading Basics (Automotive ECUs)
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <span className="text-orange-500">▸</span> iProg+, EEPROM Programmer Tools
                                 </li>
                             </ul>
                         </div>
