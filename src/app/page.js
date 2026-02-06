@@ -56,8 +56,8 @@ export default function Home() {
                 My Works
               </a>
               <a
-                href="/Theekshana_Dilsara_CV_Resume.pdf"
-                download="Theekshana_Dilsara_CV_Resume.pdf"
+                href="/Theekshana Dilsara CV Resume.pdf"
+                download="Theekshana Dilsara CV Resume.pdf"
                 className="bg-orange-900 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 text-center min-w-[140px]"
               >
                 My Resume
