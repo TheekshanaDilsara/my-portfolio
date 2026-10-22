@@ -517,7 +517,7 @@ export default function CinematicBackground() {
 
   return (
     <div
-      className="fixed inset-0 pointer-events-none -z-10 overflow-hidden"
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
       aria-hidden="true"
       style={{
         transform: "translate3d(0, 0, 0)",
