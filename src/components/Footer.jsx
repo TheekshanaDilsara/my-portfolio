@@ -31,7 +31,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-100 dark:bg-[#050608] border-t border-slate-200 dark:border-white/10 pt-16 pb-12 px-6 md:px-12 lg:px-20 text-slate-600 dark:text-gray-400 transition-colors duration-300">
+    <footer className="relative z-10 bg-slate-100 dark:bg-[#050608] border-t border-slate-200 dark:border-white/10 pt-16 pb-12 px-6 md:px-12 lg:px-20 text-slate-600 dark:text-gray-400 transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Top Tier */}
         <div className="grid md:grid-cols-12 gap-8 items-start justify-between">
@@ -63,34 +63,34 @@ export default function Footer() {
             </div>
             <ul className="space-y-1.5 text-xs">
               <li>
-                <a href="#hero" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                <Link href="/#hero" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   Overview
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                <Link href="/#about" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   About &amp; Philosophy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#skills" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                <Link href="/#skills" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   Technical Matrix
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#projects" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                <Link href="/#projects" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   Featured Projects
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#education" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                <Link href="/#education" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   Education &amp; Chronology
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                <Link href="/#contact" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   Contact Transmission
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
