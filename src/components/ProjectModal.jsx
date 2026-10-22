@@ -55,39 +55,39 @@ export default function ProjectModal({ project, onClose }) {
 
   const modalMarkup = (
     <div
-      className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 transition-opacity duration-300"
+      className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 transition-opacity duration-300"
       onClick={onClose}
     >
       {/* Full-Display Centered Modal Window */}
       <div
-        className="relative w-full h-[96vh] sm:h-[90vh] max-w-7xl bg-[#0c0e14] border border-white/15 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/95 flex flex-col overflow-hidden"
+        className="relative w-full h-[96vh] sm:h-[90vh] max-w-7xl bg-white dark:bg-[#0c0e14] border border-slate-200 dark:border-white/15 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/95 flex flex-col overflow-hidden text-slate-900 dark:text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Navigation & Status Bar */}
-        <div className="shrink-0 bg-[#0c0e14] border-b border-white/10 px-4 sm:px-6 md:px-8 py-3.5 flex items-center justify-between gap-4 z-20">
+        <div className="shrink-0 bg-slate-50 dark:bg-[#0c0e14] border-b border-slate-200 dark:border-white/10 px-4 sm:px-6 md:px-8 py-3.5 flex items-center justify-between gap-4 z-20">
           <div className="flex items-center gap-3 min-w-0">
             <div className="flex items-center gap-2">
-              <span className="font-mono-code text-[11px] px-2.5 py-0.5 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30 shrink-0">
+              <span className="font-mono-code text-[11px] px-2.5 py-0.5 rounded-full bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 shrink-0 font-medium">
                 {project.category}
               </span>
-              <span className="hidden sm:inline font-mono-code text-[11px] px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10 shrink-0">
+              <span className="hidden sm:inline font-mono-code text-[11px] px-2.5 py-0.5 rounded-full bg-slate-200/70 dark:bg-white/5 text-slate-700 dark:text-gray-300 border border-slate-300/80 dark:border-white/10 shrink-0">
                 {project.type}
               </span>
             </div>
-            <h2 className="text-base sm:text-xl md:text-2xl font-extrabold text-white tracking-tight truncate">
+            <h2 className="text-base sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight truncate">
               {project.title}
             </h2>
           </div>
 
           {/* Close Action */}
           <div className="flex items-center gap-2 shrink-0">
-            <span className="hidden md:inline font-mono-code text-xs text-gray-500">
+            <span className="hidden md:inline font-mono-code text-xs text-slate-400 dark:text-gray-500">
               [ESC]
             </span>
             <button
               onClick={onClose}
               aria-label="Close project preview"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-neutral-900 border border-white/15 hover:border-orange-500 text-gray-400 hover:text-white flex items-center justify-center transition-colors shadow-md cursor-pointer"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-white/15 hover:border-orange-500 text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition-colors shadow-sm dark:shadow-md cursor-pointer"
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -99,7 +99,7 @@ export default function ProjectModal({ project, onClose }) {
         {/* 2-Column Split Workspace: Left = Video Demo, Right = Project Details */}
         <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
           {/* LEFT COLUMN: Video Player Showcase */}
-          <div className="lg:col-span-7 h-auto lg:h-full bg-black/75 flex flex-col items-center justify-center p-3 sm:p-5 md:p-6 border-b lg:border-b-0 lg:border-r border-white/10 relative overflow-hidden shrink-0 max-h-[42vh] sm:max-h-[48vh] lg:max-h-full">
+          <div className="lg:col-span-7 h-auto lg:h-full bg-black/90 flex flex-col items-center justify-center p-3 sm:p-5 md:p-6 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-white/10 relative overflow-hidden shrink-0 max-h-[42vh] sm:max-h-[48vh] lg:max-h-full">
             {/* Top Bar inside Video Column: Stream Indicator & Source Switcher */}
             <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
               <div className="font-mono-code text-[10px] sm:text-[11px] px-2.5 py-1 rounded bg-black/85 backdrop-blur-md border border-white/10 text-orange-400 flex items-center gap-1.5 shadow-md">
@@ -245,23 +245,23 @@ export default function ProjectModal({ project, onClose }) {
           {/* RIGHT COLUMN: Project Details (Scrollable) */}
           <div
             ref={detailsScrollRef}
-            className="lg:col-span-5 h-full overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6 flex flex-col justify-between"
+            className="lg:col-span-5 h-full overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6 flex flex-col justify-between bg-white dark:bg-[#0c0e14]"
           >
             <div className="space-y-6">
               {/* Tagline */}
               {project.tagline && (
-                <div className="p-3.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-200 text-xs sm:text-sm leading-relaxed">
+                <div className="p-3.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-950 dark:text-orange-200 text-xs sm:text-sm leading-relaxed font-medium">
                   {project.tagline}
                 </div>
               )}
 
               {/* Project Architecture & Overview */}
               <div className="space-y-2.5">
-                <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
                   <span>Project Architecture &amp; Overview</span>
                 </h3>
-                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
+                <p className="text-slate-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed font-light">
                   {project.description}
                 </p>
               </div>
@@ -269,7 +269,7 @@ export default function ProjectModal({ project, onClose }) {
               {/* Key Technical Highlights & Outcomes */}
               {project.highlights && project.highlights.length > 0 && (
                 <div className="space-y-2.5">
-                  <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
                     <span>Key Technical Highlights &amp; Outcomes</span>
                   </h3>
@@ -277,9 +277,9 @@ export default function ProjectModal({ project, onClose }) {
                     {project.highlights.map((highlight, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-lg bg-neutral-900/70 border border-white/5 text-gray-300 text-xs sm:text-sm"
+                        className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-lg bg-slate-50 dark:bg-neutral-900/70 border border-slate-200 dark:border-white/5 text-slate-700 dark:text-gray-300 text-xs sm:text-sm"
                       >
-                        <span className="text-orange-500 font-mono-code text-xs mt-0.5 shrink-0">
+                        <span className="text-orange-600 dark:text-orange-500 font-mono-code text-xs mt-0.5 shrink-0 font-bold">
                           0{idx + 1}
                         </span>
                         <span className="leading-relaxed">{highlight}</span>
@@ -291,14 +291,14 @@ export default function ProjectModal({ project, onClose }) {
 
               {/* Technologies & Tooling */}
               <div className="space-y-2">
-                <h3 className="text-[11px] font-mono-code text-gray-400 tracking-wider uppercase">
+                <h3 className="text-[11px] font-mono-code text-slate-500 dark:text-gray-400 tracking-wider uppercase">
                   Technologies &amp; Toolsets
                 </h3>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="font-mono-code text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-neutral-900 border border-white/10 text-gray-300"
+                      className="font-mono-code text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-neutral-900 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-gray-300"
                     >
                       {tech}
                     </span>
@@ -308,7 +308,7 @@ export default function ProjectModal({ project, onClose }) {
             </div>
 
             {/* Bottom Actions */}
-            <div className="pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+            <div className="pt-5 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
               {project.githubUrl ? (
                 <a
                   href={project.githubUrl}
@@ -327,7 +327,7 @@ export default function ProjectModal({ project, onClose }) {
 
               <button
                 onClick={onClose}
-                className="text-xs font-mono-code text-gray-400 hover:text-white px-3.5 py-2 rounded-lg border border-white/10 hover:border-white/20 transition-colors cursor-pointer"
+                className="text-xs font-mono-code text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white px-3.5 py-2 rounded-lg border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 bg-slate-50 dark:bg-transparent transition-colors cursor-pointer"
               >
                 Close Window
               </button>

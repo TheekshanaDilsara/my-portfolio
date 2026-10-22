@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CinematicBackground from "../components/CinematicBackground";
+import { ThemeProvider } from "../context/ThemeContext";
 
 export const metadata = {
   title: "Theekshana Dilsara Sugathnath | Data Science & Software Engineering",
@@ -34,13 +35,39 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="bg-[#07080a] text-[#f3f4f6] min-h-screen flex flex-col selection:bg-orange-500/30 selection:text-white antialiased relative">
-        <CinematicBackground />
-        <Navbar />
-        <main className="flex-1 relative z-10">{children}</main>
-        <Footer />
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('portfolio-theme');
+                  var theme = saved || 'dark';
+                  if (theme === 'light') {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('light');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-[#f8fafc] text-slate-900 dark:bg-[#07080a] dark:text-[#f3f4f6] min-h-screen flex flex-col selection:bg-orange-500/30 selection:text-white antialiased relative transition-colors duration-300">
+        <ThemeProvider>
+          <CinematicBackground />
+          <Navbar />
+          <main className="flex-1 relative z-10">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+

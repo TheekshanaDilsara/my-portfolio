@@ -435,8 +435,9 @@ export default function CinematicBackground() {
       currentScroll += (targetScroll - currentScroll) * 0.09;
       scrollVelocity *= 0.91;
 
-      // 1. Deep Space Base
-      ctx.fillStyle = "#07080a";
+      // 1. Dynamic Canvas Base (adapts to active theme)
+      const isLight = document.documentElement.classList.contains("light");
+      ctx.fillStyle = isLight ? "#f8fafc" : "#07080a";
       ctx.fillRect(0, 0, width, height);
 
       // 2. Precompute 3D Energy Helix for this frame

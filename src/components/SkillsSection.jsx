@@ -33,21 +33,21 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-24 px-6 md:px-12 lg:px-20 relative bg-[#090b10]/40 border-t border-white/5">
+    <section id="skills" className="py-24 px-6 md:px-12 lg:px-20 relative bg-slate-50/50 dark:bg-[#090b10]/40 border-t border-slate-200 dark:border-white/5">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="flex items-center gap-2 font-mono-code text-xs text-orange-400 tracking-wider uppercase mb-3">
+            <div className="flex items-center gap-2 font-mono-code text-xs text-orange-600 dark:text-orange-400 tracking-wider uppercase mb-3">
               <span className="w-8 h-px bg-orange-500"></span>
               <span>02 // Technical Matrix</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Skills, Toolsets &amp; <br className="hidden sm:inline" />
               <span className="text-gradient-orange">Applied Competencies</span>.
             </h2>
           </div>
-          <p className="text-gray-400 text-sm md:text-base max-w-md font-light leading-relaxed">
+          <p className="text-slate-600 dark:text-gray-400 text-sm md:text-base max-w-md font-light leading-relaxed">
             Organized across data science, business analytics, full-stack software architectures, and hardware diagnostics.
           </p>
         </div>
@@ -58,10 +58,10 @@ export default function SkillsSection() {
             <button
               key={idx}
               onClick={() => setActiveCategory(cat)}
-              className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-mono-code transition-all duration-200 ${
+              className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-mono-code transition-all duration-200 cursor-pointer ${
                 activeCategory === cat
                   ? "bg-orange-500 text-white font-semibold shadow-lg shadow-orange-500/20"
-                  : "bg-neutral-900/80 border border-white/10 text-gray-400 hover:text-white hover:border-white/20"
+                  : "bg-white dark:bg-neutral-900/80 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-white/20 shadow-sm dark:shadow-none"
               }`}
             >
               {cat}
@@ -83,13 +83,13 @@ export default function SkillsSection() {
                     {getCategoryIcon(group.icon)}
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-white leading-tight">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white leading-tight">
                       {group.category}
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-400 font-light mb-5 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-gray-400 font-light mb-5 leading-relaxed">
                   {group.description}
                 </p>
 
@@ -98,13 +98,13 @@ export default function SkillsSection() {
                   {group.skills.map((skill, sIdx) => (
                     <div
                       key={sIdx}
-                      className="p-3 rounded-xl bg-black/40 border border-white/5 hover:border-white/15 transition-colors"
+                      className="p-3 rounded-xl bg-slate-50/80 dark:bg-black/40 border border-slate-200/80 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/15 transition-colors"
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-xs font-bold text-gray-200">
+                        <span className="text-xs font-bold text-slate-900 dark:text-gray-200">
                           {skill.name}
                         </span>
-                        <span className="font-mono-code text-[10px] text-orange-400 px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/20">
+                        <span className="font-mono-code text-[10px] text-orange-600 dark:text-orange-400 px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/20 font-medium">
                           {skill.level}
                         </span>
                       </div>
@@ -114,7 +114,7 @@ export default function SkillsSection() {
                         {skill.tags.map((tag, tIdx) => (
                           <span
                             key={tIdx}
-                            className="font-mono-code text-[10px] text-gray-400 bg-white/5 px-1.5 py-0.5 rounded"
+                            className="font-mono-code text-[10px] text-slate-600 dark:text-gray-400 bg-slate-200/60 dark:bg-white/5 px-1.5 py-0.5 rounded"
                           >
                             {tag}
                           </span>
@@ -126,9 +126,9 @@ export default function SkillsSection() {
               </div>
 
               {/* Bottom Card Telemetry */}
-              <div className="pt-4 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono-code text-gray-400">
+              <div className="pt-4 mt-6 border-t border-slate-200 dark:border-white/5 flex items-center justify-between text-[11px] font-mono-code text-slate-500 dark:text-gray-400">
                 <span>SKILLS_COUNT: {group.skills.length}</span>
-                <span className="text-orange-400/80">VERIFIED</span>
+                <span className="text-orange-600 dark:text-orange-400/80 font-medium">VERIFIED</span>
               </div>
             </div>
           ))}
