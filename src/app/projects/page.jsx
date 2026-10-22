@@ -29,7 +29,7 @@ export default function ProjectsPage() {
       <ProjectsSection />
 
       {/* Bottom CTA */}
-      <section className="py-20 px-6 md:px-12 bg-[#090b10]/40 backdrop-blur-[2px] border-t border-white/5 text-center">
+      <section className="py-20 px-6 md:px-12 bg-[#090b10]/40 border-t border-white/5 text-center">
         <div className="max-w-3xl mx-auto space-y-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white">
             Have a Problem That Needs Data or Code?

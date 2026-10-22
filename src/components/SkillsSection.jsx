@@ -33,7 +33,7 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-24 px-6 md:px-12 lg:px-20 relative bg-[#090b10]/40 backdrop-blur-[2px] border-t border-white/5">
+    <section id="skills" className="py-24 px-6 md:px-12 lg:px-20 relative bg-[#090b10]/40 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
