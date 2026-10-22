@@ -1,9 +1,20 @@
 "use client";
 
-import { useEffect, useSyncExternalStore, useRef } from "react";
+import { useEffect, useState, useSyncExternalStore, useRef } from "react";
 import { createPortal } from "react-dom";
 
 const emptySubscribe = () => () => {};
+
+// Utility: extract 11-character YouTube video ID from any format URL or raw ID
+function extractYouTubeId(url) {
+  if (!url) return null;
+  const str = url.trim();
+  if (/^[a-zA-Z0-9_-]{11}$/.test(str)) return str;
+  const match = str.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/
+  );
+  return match ? match[1] : null;
+}
 
 export default function ProjectModal({ project, onClose }) {
   const isClient = useSyncExternalStore(
@@ -12,6 +23,16 @@ export default function ProjectModal({ project, onClose }) {
     () => false
   );
   const detailsScrollRef = useRef(null);
+
+  const youtubeId = project ? extractYouTubeId(project.youtubeUrl) : null;
+  const hasYouTube = Boolean(youtubeId);
+  const hasLocal = Boolean(project?.videoUrl);
+
+  // Default to YouTube if available (fastest global edge streaming on Vercel), else Local MP4
+  const [preferredSource, setPreferredSource] = useState(
+    hasYouTube ? "youtube" : "local"
+  );
+  const [isLocalBuffering, setIsLocalBuffering] = useState(true);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -27,12 +48,6 @@ export default function ProjectModal({ project, onClose }) {
       document.body.style.overflow = "auto";
     };
   }, [onClose]);
-
-  useEffect(() => {
-    if (detailsScrollRef.current) {
-      detailsScrollRef.current.scrollTop = 0;
-    }
-  }, [project]);
 
   if (!project || !isClient) return null;
 
@@ -85,24 +100,98 @@ export default function ProjectModal({ project, onClose }) {
         <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
           {/* LEFT COLUMN: Video Player Showcase */}
           <div className="lg:col-span-7 h-auto lg:h-full bg-black/75 flex flex-col items-center justify-center p-3 sm:p-5 md:p-6 border-b lg:border-b-0 lg:border-r border-white/10 relative overflow-hidden shrink-0 max-h-[42vh] sm:max-h-[48vh] lg:max-h-full">
-            {/* Live Indicator Badge */}
-            <div className="absolute top-3 left-3 z-10 font-mono-code text-[10px] sm:text-[11px] px-2.5 py-1 rounded bg-black/80 backdrop-blur-md border border-white/10 text-orange-400 flex items-center gap-1.5 pointer-events-none">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              <span>{isMobileApp ? "MOBILE DEMO PLAYBACK" : "SYSTEM DEMO PLAYBACK"}</span>
+            {/* Top Bar inside Video Column: Stream Indicator & Source Switcher */}
+            <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
+              <div className="font-mono-code text-[10px] sm:text-[11px] px-2.5 py-1 rounded bg-black/85 backdrop-blur-md border border-white/10 text-orange-400 flex items-center gap-1.5 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                <span>
+                  {preferredSource === "youtube"
+                    ? "YOUTUBE FAST CDN STREAM ⚡"
+                    : isLocalBuffering
+                    ? "BUFFERING HD STREAM..."
+                    : isMobileApp
+                    ? "MOBILE DEMO PLAYBACK"
+                    : "DIRECT HD VIDEO"}
+                </span>
+              </div>
+
+              {/* Source Switcher Toggle if both are available */}
+              {hasYouTube && hasLocal && (
+                <div className="pointer-events-auto flex items-center bg-black/90 backdrop-blur-md rounded-lg p-0.5 border border-white/15 text-[10px] font-mono-code shadow-lg">
+                  <button
+                    onClick={() => setPreferredSource("youtube")}
+                    className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
+                      preferredSource === "youtube"
+                        ? "bg-orange-500 text-white font-bold"
+                        : "text-gray-400 hover:text-white"
+                    }`}
+                  >
+                    ⚡ Fast Stream
+                  </button>
+                  <button
+                    onClick={() => setPreferredSource("local")}
+                    className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
+                      preferredSource === "local"
+                        ? "bg-orange-500 text-white font-bold"
+                        : "text-gray-400 hover:text-white"
+                    }`}
+                  >
+                    🎬 Local MP4
+                  </button>
+                </div>
+              )}
             </div>
 
-            {project.videoUrl ? (
+            {/* Video Player Display */}
+            {preferredSource === "youtube" && youtubeId ? (
+              <div className="w-full h-full flex items-center justify-center">
+                <div
+                  className={`relative w-full shadow-2xl bg-black flex items-center justify-center ${
+                    isMobileApp
+                      ? "max-h-[38vh] sm:max-h-[44vh] lg:max-h-[72vh] aspect-[9/16] max-w-[340px] rounded-2xl overflow-hidden border-2 border-neutral-700"
+                      : "max-w-4xl max-h-[38vh] sm:max-h-[44vh] lg:max-h-[72vh] aspect-video rounded-xl overflow-hidden border border-white/10"
+                  }`}
+                >
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=0&controls=1&rel=0&playsinline=1`}
+                    title={project.title}
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            ) : project.videoUrl ? (
               <div className="w-full h-full flex items-center justify-center">
                 {isMobileApp ? (
                   /* Mobile App Portrait Frame */
                   <div className="relative h-full max-h-[38vh] sm:max-h-[44vh] lg:max-h-[72vh] aspect-[9/16] rounded-2xl overflow-hidden bg-black shadow-2xl border-2 border-neutral-700 flex items-center justify-center">
+                    {isLocalBuffering && (
+                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm gap-2.5 p-4 text-center">
+                        <div className="w-8 h-8 border-2 border-orange-500/20 border-t-orange-500 rounded-full animate-spin"></div>
+                        <span className="font-mono-code text-[11px] text-orange-400">
+                          Streaming video from edge...
+                        </span>
+                        {hasYouTube && (
+                          <button
+                            onClick={() => setPreferredSource("youtube")}
+                            className="font-mono-code text-[10px] text-gray-400 hover:text-white underline cursor-pointer mt-1"
+                          >
+                            ⚡ Switch to YouTube for instant start
+                          </button>
+                        )}
+                      </div>
+                    )}
                     <video
                       controls
                       playsInline
                       autoPlay
                       loop
                       muted
-                      preload="metadata"
+                      preload="auto"
+                      onCanPlay={() => setIsLocalBuffering(false)}
+                      onLoadedData={() => setIsLocalBuffering(false)}
+                      onWaiting={() => setIsLocalBuffering(true)}
                       className="w-full h-full object-contain bg-black"
                       src={project.videoUrl}
                     >
@@ -112,13 +201,32 @@ export default function ProjectModal({ project, onClose }) {
                 ) : (
                   /* Web / Dashboard Widescreen Frame */
                   <div className="relative w-full max-w-4xl max-h-[38vh] sm:max-h-[44vh] lg:max-h-[72vh] aspect-video rounded-xl overflow-hidden bg-black shadow-2xl border border-white/10 flex items-center justify-center">
+                    {isLocalBuffering && (
+                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/85 backdrop-blur-sm gap-2.5 p-4 text-center">
+                        <div className="w-8 h-8 border-2 border-orange-500/20 border-t-orange-500 rounded-full animate-spin"></div>
+                        <span className="font-mono-code text-[11px] text-orange-400">
+                          Streaming HD video from edge...
+                        </span>
+                        {hasYouTube && (
+                          <button
+                            onClick={() => setPreferredSource("youtube")}
+                            className="font-mono-code text-[10px] text-gray-400 hover:text-white underline cursor-pointer mt-1"
+                          >
+                            ⚡ Switch to YouTube for instant start
+                          </button>
+                        )}
+                      </div>
+                    )}
                     <video
                       controls
                       playsInline
                       autoPlay
                       loop
                       muted
-                      preload="metadata"
+                      preload="auto"
+                      onCanPlay={() => setIsLocalBuffering(false)}
+                      onLoadedData={() => setIsLocalBuffering(false)}
+                      onWaiting={() => setIsLocalBuffering(true)}
                       className="w-full h-full object-contain bg-black"
                       src={project.videoUrl}
                     >

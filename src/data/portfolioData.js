@@ -122,6 +122,7 @@ export const projectsData = [
     icon: "📊",
     githubUrl: "https://github.com/TheekshanaDilsara/Customer_behavior_analysis",
     videoUrl: "/videos/customer_dashboard-demo.mp4",
+    youtubeUrl: "https://youtu.be/b4PePVsl0fg",
     posterImage: null,
   },
   {
@@ -145,6 +146,7 @@ export const projectsData = [
     icon: "🛍️",
     githubUrl: "https://github.com/TheekshanaDilsara/AURA-Shopping-Platform",
     videoUrl: "/videos/aura-demo.mp4",
+    youtubeUrl: "https://youtu.be/RJlySkKHcGM",
     posterImage: null,
   },
   {
@@ -168,6 +170,7 @@ export const projectsData = [
     icon: "🏥",
     githubUrl: "https://github.com/TheekshanaDilsara/ElderCare-Elder-Home-System",
     videoUrl: "/videos/eldercare-demo.mp4",
+    youtubeUrl: "https://youtu.be/S0F8WcjYKew",
     posterImage: null,
   },
   {
@@ -191,6 +194,7 @@ export const projectsData = [
     icon: "🚗",
     githubUrl: "https://github.com/TheekshanaDilsara/DriveMate-MobileAppliacation",
     videoUrl: "/videos/drivemate-demo.mp4",
+    youtubeUrl: "https://youtu.be/L7eNscXTvAs",
     posterImage: null,
   },
   {
@@ -214,6 +218,7 @@ export const projectsData = [
     icon: "💪",
     githubUrl: "https://github.com/TheekshanaDilsara/FitPro-_Fitness-and-Habbit-Tracker",
     videoUrl: "/videos/fitpro-demo.mp4",
+    youtubeUrl: "https://youtu.be/eTiVKNgFfRM",
     posterImage: null,
   },
   {
@@ -237,6 +242,7 @@ export const projectsData = [
     icon: "🚌",
     githubUrl: "https://github.com/TheekshanaDilsara/CatchMe-BusTicket-reservation-system",
     videoUrl: "/videos/catchme-demo.mp4",
+    youtubeUrl: "https://youtu.be/n45SKcyk1Ww",
     posterImage: null,
   }
 ];

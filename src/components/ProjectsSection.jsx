@@ -146,6 +146,7 @@ export default function ProjectsSection() {
                       loop
                       autoPlay
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover filter brightness-90 group-hover/preview:brightness-100 transition-all duration-300"
                     />
 
@@ -190,6 +191,7 @@ export default function ProjectsSection() {
                       loop
                       autoPlay
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover filter brightness-85 group-hover:brightness-100 group-hover:scale-102 transition-all duration-500"
                     />
                   ) : (
@@ -278,6 +280,7 @@ export default function ProjectsSection() {
       {/* Project Modal */}
       {activeProjectModal && (
         <ProjectModal
+          key={activeProjectModal.id}
           project={activeProjectModal}
           onClose={() => setActiveProjectModal(null)}
         />
