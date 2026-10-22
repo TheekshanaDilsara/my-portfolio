@@ -185,7 +185,7 @@ export default function HeroSection() {
               </div>
               <div>
                 <div className="font-mono-code text-[10px] text-gray-400 uppercase tracking-wider">Focus Areas</div>
-                <div className="text-xs font-bold text-white">Machine Learning </div>
+                <div className="text-xs font-bold text-white">Machine Learning .</div>
               </div>
             </div>
           </div>
@@ -193,13 +193,14 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none opacity-70">
-        <span className="font-mono-code text-[10px] text-gray-400 uppercase tracking-widest">
-          Scroll To Explore
-        </span>
+      <div className="absolute bottom-2 sm:bottom-1 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 sm:gap-2 pointer-events-none opacity-70">
         <div className="w-5 h-9 rounded-full border border-white/20 flex justify-center p-1">
           <div className="w-1 h-2 bg-orange-500 rounded-full animate-bounce"></div>
         </div>
+        <span className="font-mono-code text-[10px] text-gray-400 uppercase tracking-widest">
+          Scroll To Explore
+        </span>
+
       </div>
     </section>
   );
