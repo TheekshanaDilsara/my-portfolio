@@ -6,7 +6,9 @@ import { personalInfo } from "../data/portfolioData";
 import { useTheme } from "../context/ThemeContext";
 
 export default function HeroSection() {
-  const [imageLoaded, setImageLoaded] = useState(true);
+  const [darkSrc, setDarkSrc] = useState("/profile.jpg");
+  const [darkError, setDarkError] = useState(false);
+  const [lightError, setLightError] = useState(false);
   const { theme, mounted } = useTheme();
   const isLight = mounted && theme === "light";
 
@@ -127,32 +129,44 @@ export default function HeroSection() {
 
               {/* Portrait Image Frame */}
               <div className="relative aspect-4/5 rounded-xl overflow-hidden bg-gradient-to-b from-slate-200 to-slate-300 dark:from-neutral-800 dark:to-neutral-950 border border-slate-200 dark:border-neutral-800 group">
-                {imageLoaded ? (
-                  <>
-                    {/* Dark Theme Portrait */}
-                    <Image
-                      src="/profile.jpg"
-                      alt="Theekshana Dilsara Sugathnath - Dark Theme"
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`object-cover object-center filter grayscale-20 contrast-105 group-hover:grayscale-0 group-hover:scale-103 transition-all duration-700 ease-out ${isLight ? "opacity-0" : "opacity-100"
-                        }`}
-                      onError={() => setImageLoaded(false)}
-                    />
-                    {/* Light Theme Portrait */}
-                    <Image
-                      src="/profile-light.jpg"
-                      alt="Theekshana Dilsara Sugathnath - Light Theme"
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`object-cover object-center group-hover:scale-103 transition-all duration-700 ease-out ${isLight ? "opacity-100" : "opacity-0"
-                        }`}
-                      onError={() => setImageLoaded(false)}
-                    />
-                  </>
-                ) : (
+                {/* Dark Theme Portrait */}
+                {!darkError && (
+                  <Image
+                    src={darkSrc}
+                    alt="Theekshana Dilsara Sugathnath - Dark Theme"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className={`object-cover object-center filter grayscale-20 contrast-105 group-hover:grayscale-0 group-hover:scale-103 transition-all duration-700 ease-out ${
+                      isLight ? "opacity-0 pointer-events-none" : "opacity-100"
+                    }`}
+                    onError={() => {
+                      if (darkSrc === "/profile.jpg") {
+                        setDarkSrc("/profile.JPG");
+                      } else {
+                        setDarkError(true);
+                      }
+                    }}
+                  />
+                )}
+
+                {/* Light Theme Portrait */}
+                {!lightError && (
+                  <Image
+                    src="/profile-light.jpg"
+                    alt="Theekshana Dilsara Sugathnath - Light Theme"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className={`object-cover object-center group-hover:scale-103 transition-all duration-700 ease-out ${
+                      isLight ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
+                    onError={() => setLightError(true)}
+                  />
+                )}
+
+                {/* Fallback only if both fail to load */}
+                {darkError && lightError && (
                   <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 dark:bg-neutral-900 text-orange-500 font-mono-code">
                     <span className="text-6xl font-bold">TD</span>
                     <span className="text-xs text-slate-500 dark:text-gray-400 mt-2">Theekshana Dilsara</span>
