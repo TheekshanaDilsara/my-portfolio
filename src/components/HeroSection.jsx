@@ -185,7 +185,7 @@ export default function HeroSection() {
               </div>
               <div>
                 <div className="font-mono-code text-[10px] text-gray-400 uppercase tracking-wider">Focus Areas</div>
-                <div className="text-xs font-bold text-white">Machine Learning &bull; SWE</div>
+                <div className="text-xs font-bold text-white">Machine Learning </div>
               </div>
             </div>
           </div>
