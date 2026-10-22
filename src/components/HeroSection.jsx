@@ -137,9 +137,8 @@ export default function HeroSection() {
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 400px"
-                    className={`object-cover object-center filter grayscale-20 contrast-105 group-hover:grayscale-0 group-hover:scale-103 transition-all duration-700 ease-out ${
-                      isLight ? "opacity-0 pointer-events-none" : "opacity-100"
-                    }`}
+                    className={`object-cover object-center filter grayscale-20 contrast-105 group-hover:grayscale-0 group-hover:scale-103 transition-all duration-700 ease-out ${isLight ? "opacity-0 pointer-events-none" : "opacity-100"
+                      }`}
                     onError={() => {
                       if (darkSrc === "/profile.jpg") {
                         setDarkSrc("/profile.JPG");
@@ -158,9 +157,8 @@ export default function HeroSection() {
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 400px"
-                    className={`object-cover object-center group-hover:scale-103 transition-all duration-700 ease-out ${
-                      isLight ? "opacity-100" : "opacity-0 pointer-events-none"
-                    }`}
+                    className={`object-cover object-center group-hover:scale-103 transition-all duration-700 ease-out ${isLight ? "opacity-100" : "opacity-0 pointer-events-none"
+                      }`}
                     onError={() => setLightError(true)}
                   />
                 )}
@@ -211,17 +209,18 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Decorative Floating Tech Badge */}
-            <div className="absolute -bottom-5 -left-5 bg-white dark:bg-[#0e1017] border border-orange-500/40 rounded-xl p-3 shadow-xl backdrop-blur-md flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-orange-500/15 dark:bg-orange-500/20 border border-orange-500 flex items-center justify-center text-lg">
-                ⚡
-              </div>
-              <div>
-                <div className="font-mono-code text-[10px] text-slate-500 dark:text-gray-400 uppercase tracking-wider">Focus Areas</div>
-                <div className="text-xs font-bold text-slate-900 dark:text-white">Machine Learning .</div>
-              </div>
-            </div>
+
           </div>
+        </div>
+      </div>
+      {/* Decorative Floating Tech Badge */}
+      <div className="absolute -bottom-1 -center-1/2 bg-white dark:bg-[#0e1017] border border-orange-500/40 rounded-xl p-3 shadow-xl backdrop-blur-md flex items-center gap-3">
+        <div className="w-5 h-5 rounded-lg bg-orange-500/15 dark:bg-orange-500/20 border border-orange-500 flex items-center justify-center text-lg">
+          ⚡
+        </div>
+        <div>
+          <div className="font-mono-code text-[10px] text-slate-500 dark:text-gray-400 uppercase tracking-wider">Focus Areas</div>
+          <div className="text-xs font-bold text-slate-900 dark:text-white">Machine Learning .</div>
         </div>
       </div>
 
