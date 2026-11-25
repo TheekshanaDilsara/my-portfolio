@@ -14,7 +14,7 @@ export const personalInfo = {
     "Driven by curiosity and engineering discipline, I focus on turning raw transactional and spatial data into actionable insights, scalable algorithms, and intuitive digital experiences that deliver measurable impact."
   ],
   stats: [
-    { label: "Completed Projects", value: "6+", highlight: "Web, Mobile, Analytics" },
+    { label: "Completed Projects", value: "7+", highlight: "Web, Mobile, Analytics" },
     { label: "Transactions Analyzed", value: "3.9K+", highlight: "Customer Behavior BI" },
     { label: "Technologies Mastered", value: "15+", highlight: "Python, SQL, React, Java" },
     { label: "Academic Specialization", value: "Data Science", highlight: "SLIIT BSc (Hons)" },
@@ -243,6 +243,30 @@ export const projectsData = [
     githubUrl: "https://github.com/TheekshanaDilsara/CatchMe-BusTicket-reservation-system",
     videoUrl: "/videos/catchme-demo.mp4",
     youtubeUrl: "https://youtu.be/n45SKcyk1Ww",
+    posterImage: null,
+  },
+  {
+    id: 7,
+    slug: "smart-campus-management-system",
+    title: "Smart Campus — Campus Operations & Resource Hub",
+    tagline: "Full-stack Spring Boot & React platform for facility bookings, asset catalogues, and maintenance ticketing",
+    type: "Collaborative Engineering",
+    category: "Web Development",
+    featured: true,
+    accent: "orange",
+    description:
+      "Built a full-stack Smart Campus Management System for university operations using Spring Boot 3, PostgreSQL, and React. Supports campus facility & asset discovery, resource booking approvals, maintenance ticket workflows with technician assignment, and role-based dashboards.",
+    highlights: [
+      "Engineered the Facilities & Assets Catalogue module with search, filtering, detailed asset views, and CRUD management.",
+      "Integrated Spring Security with stateless JWT authentication, Google OAuth2 login, and 3-tier RBAC (User, Technician, Admin).",
+      "Built end-to-end booking approval and maintenance ticketing pipelines with image uploads and in-app notifications.",
+      "Developed responsive role-specific React + Tailwind CSS dashboards backed by RESTful Spring Data JPA & PostgreSQL APIs."
+    ],
+    technologies: ["Spring Boot", "Java 17", "React", "PostgreSQL", "Spring Security", "JWT & OAuth2", "Tailwind CSS"],
+    icon: "🏫",
+    githubUrl: "https://github.com/Buddhika54/it3030-paf-2026-smart-campus-KND-01",
+    videoUrl: "/videos/SmartCampus-demo.mp4",
+    youtubeUrl: "https://www.youtube.com/watch?v=e29PN6_XAiU",
     posterImage: null,
   }
 ];
