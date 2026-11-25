@@ -14,7 +14,7 @@ export const personalInfo = {
     "Driven by curiosity and engineering discipline, I focus on turning raw transactional and spatial data into actionable insights, scalable algorithms, and intuitive digital experiences that deliver measurable impact."
   ],
   stats: [
-    { label: "Completed Projects", value: "8+", highlight: "Web, Mobile, Analytics" },
+    { label: "Completed Projects", value: "9+", highlight: "Web, Mobile, Analytics" },
     { label: "Transactions Analyzed", value: "3.9K+", highlight: "Customer Behavior BI" },
     { label: "Technologies Mastered", value: "15+", highlight: "Python, SQL, React, Java" },
     { label: "Academic Specialization", value: "Data Science", highlight: "SLIIT BSc (Hons)" },
@@ -291,6 +291,30 @@ export const projectsData = [
     githubUrl: "https://github.com/RavinduPathirana28/ecommerce-churn-predictor",
     videoUrl: "/videos/churnguard-demo.mp4",
     youtubeUrl: "https://youtu.be/3WaGC5gSE6c",
+    posterImage: null,
+  },
+  {
+    id: 9,
+    slug: "claimshield-ai-fact-verification",
+    title: "ClaimShield AI — Multi-Agent Fact Verification",
+    tagline: "5-agent LangGraph & A2A/1.0 fact-checking system with FAISS retrieval and multi-LLM consensus",
+    type: "Collaborative Engineering",
+    category: "Data Science",
+    featured: true,
+    accent: "cyan",
+    description:
+      "Built a production-grade Agentic AI platform for real-time news claim verification using 5 specialized agents communicating over the A2A/1.0 JSON protocol. Combines FAISS dense vector retrieval, live web scraping, parallel multi-LLM consensus, persona debate reasoning, and real-time SSE streaming.",
+    highlights: [
+      "Orchestrated a 5-agent network (Orchestrator, NLP, Dense Retrieval, Fact-Verification, Security & Audit) using LangGraph and A2A/1.0.",
+      "Implemented parallel multi-LLM consensus across Groq, Google Gemini Flash, and OpenAI with a FactChecker–Critic debate bridge.",
+      "Built hybrid evidence retrieval combining FAISS (all-MiniLM-L6-v2) vector search, SQLite archives, and HTTPX/BeautifulSoup4 web scraping.",
+      "Added Groq Whisper voice-to-text claim input, real-time FastAPI SSE streaming, ReportLab PDF certificates, and 7 automated unittest suites."
+    ],
+    technologies: ["Python", "FastAPI", "LangGraph", "FAISS", "React 19", "Groq / Gemini", "Docker"],
+    icon: "🛡️",
+    githubUrl: "https://github.com/RavinduPathirana28/ClaimShield_AI",
+    videoUrl: "/videos/ClaimShieldAi-demo.mp4",
+    youtubeUrl: "https://www.youtube.com/watch?v=oVA6QL2LUYs",
     posterImage: null,
   }
 ];
