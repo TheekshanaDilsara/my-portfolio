@@ -14,7 +14,7 @@ export const personalInfo = {
     "Driven by curiosity and engineering discipline, I focus on turning raw transactional and spatial data into actionable insights, scalable algorithms, and intuitive digital experiences that deliver measurable impact."
   ],
   stats: [
-    { label: "Completed Projects", value: "7+", highlight: "Web, Mobile, Analytics" },
+    { label: "Completed Projects", value: "8+", highlight: "Web, Mobile, Analytics" },
     { label: "Transactions Analyzed", value: "3.9K+", highlight: "Customer Behavior BI" },
     { label: "Technologies Mastered", value: "15+", highlight: "Python, SQL, React, Java" },
     { label: "Academic Specialization", value: "Data Science", highlight: "SLIIT BSc (Hons)" },
@@ -267,6 +267,30 @@ export const projectsData = [
     githubUrl: "https://github.com/Buddhika54/it3030-paf-2026-smart-campus-KND-01",
     videoUrl: "/videos/SmartCampus-demo.mp4",
     youtubeUrl: "https://www.youtube.com/watch?v=e29PN6_XAiU",
+    posterImage: null,
+  },
+  {
+    id: 8,
+    slug: "ecommerce-churn-predictor",
+    title: "ChurnGuard AI — E-Commerce Churn Predictor",
+    tagline: "End-to-end ML churn prediction & retention intelligence platform powered by Tuned Gradient Boosting",
+    type: "Collaborative Engineering",
+    category: "Data Science",
+    featured: true,
+    accent: "amber",
+    description:
+      "Built a production-ready E-Commerce Customer Churn Prediction and decision-support system trained on 5,630 customer records. Combines a Tuned Gradient Boosting Classifier (85.97% 5-fold CV F1-score, 0.9992 test ROC-AUC) with a FastAPI inference service and an interactive retention simulator.",
+    highlights: [
+      "Trained and benchmarked multi-algorithm pipelines with Stratified 5-Fold CV, achieving 85.97% F1-score and 81.93% recall with Tuned Gradient Boosting.",
+      "Engineered domain features including onboarding cliff flags (0–3 month churn dynamics) and MNAR missingness handling across 33 model features.",
+      "Built a FastAPI + Scikit-Learn inference API (/api/predict, /api/customers, /api/metadata) with automated pytest coverage and Docker support.",
+      "Created an interactive multi-tab dashboard featuring a real-time risk gauge, What-If intervention simulator, PII-masked cohort explorer, and retention ROI calculator."
+    ],
+    technologies: ["Python", "Scikit-Learn", "FastAPI", "Pandas", "Gradient Boosting", "Docker", "JavaScript"],
+    icon: "🎯",
+    githubUrl: "https://github.com/RavinduPathirana28/ecommerce-churn-predictor",
+    videoUrl: "/videos/churnguard-demo.mp4",
+    youtubeUrl: "https://youtu.be/3WaGC5gSE6c",
     posterImage: null,
   }
 ];
